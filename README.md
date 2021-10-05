@@ -6,11 +6,11 @@ Reference:  https://medium.com/techfront/step-by-step-visual-guide-on-deploying-
 ### Virtual Environment
 First time creation:   
 ```
-python3 -m venv env
+python3 -m venv venv
 ```
 Then (activation):   
 ```
-source env/bin/activate
+source venv/bin/activate
 ```
    
 ### Local Run
@@ -45,8 +45,8 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/helloworld
-ExecStart=/home/ubuntu/helloworld/venv/bin/gunicorn -b localhost:8000 app:app
+WorkingDirectory=/home/ubuntu/<projectname>
+ExecStart=/home/ubuntu/<projectname>/venv/bin/gunicorn -b localhost:8000 app:app
 Restart=always
 [Install]
 WantedBy=multi-user.target
